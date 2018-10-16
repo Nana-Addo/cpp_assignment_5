@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// created a data structure for students
 struct student{
     int studentNumber;
     string id;
@@ -16,8 +17,12 @@ struct student{
 int main()
 {
     cout <<"Enter information of students: " << endl;
+    // variables to calculate total number of males and females
+    int maleCount = 0;
+    int femaleCount = 0;
 
     //storing information
+    //using a for loop to store information for five different people
     for(int i = 0; i < 5; ++i)
     {
     s[i].studentNumber = i + 1;
@@ -33,14 +38,21 @@ int main()
 
     cout << "\nEnter Gender (Type in Either M or F): ";
     cin >> s[i].gender;
-    if(s[i].gender != "F"|| s[i].gender != "M"){
-    cout << "PLEASE INPUT EITHER F OR M.";
+
+    // if condition to accumulate to number of males
+    if(s[i].gender == "M"){
+    maleCount++;
+
+    }
+    // if else condition to accumulate to number of females
+    else if(s[i].gender == "F"){
+    femaleCount++;
 
     }
     cout << "\nEnter Score: ";
     cin >> s[i].score;
 
-
+    // if condition to determine the grades.
     if(s[i].score <= 100 && s[i].score >=80 )
     {
         s[i].grade = 'A';
@@ -91,10 +103,12 @@ int main()
 
 
     }
-
+    // Displaying averages and totals of specific variables
     cout <<"\n\n\n";
     cout << "Average Age = " << s[0].age+s[1].age+s[2].age+s[3].age+s[4].age/5<<endl<<endl;
     cout << "Average Score = "<<s[0].score+s[1].score+s[2].score+s[3].score+s[4].score/5<< endl<<endl;
+    cout << "Male Count = "<<maleCount<< endl<<endl;
+    cout << "Female Count  = "<<femaleCount<< endl<<endl;
 
 
     return 0;
